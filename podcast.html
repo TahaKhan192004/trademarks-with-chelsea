@@ -67,7 +67,8 @@ nav{
 .nav-links{display:flex;gap:36px;align-items:center;list-style:none;grid-column:2;justify-self:center}
 .nav-links a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);opacity:.75;transition:opacity .3s}
 .nav-links a:hover{opacity:1}
-.nav-links .btn{color:var(--ink);opacity:1}
+.nav-links .btn{color:var(--cream-1);opacity:1}
+.nav-links .btn:hover{color:var(--clay)}
 .nav-right{grid-column:3;justify-self:end;display:flex;align-items:center;gap:16px}
 .menu-cta{display:none}
 .nav-links a.active{opacity:1;border-bottom:1px solid var(--clay);padding-bottom:3px}
@@ -82,7 +83,8 @@ nav{
 .btn.small{padding:11px 24px;font-size:13px}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--hairline)}
 .btn.ghost:hover{border-color:var(--clay);color:var(--clay)}
-.btn.nav-cta{color:var(--ink)}
+.btn.nav-cta{color:white}
+.btn.nav-cta:hover{color:var(--clay)}
 
 /* hamburger (≤820px) */
 .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:10px;margin:-10px}
@@ -113,7 +115,7 @@ nav{
   font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--oxblood);
   margin-bottom:28px;
 }
-.eyebrow::before{content:"";width:36px;height:1px;background:var(--clay)}
+.eyebrow::before{content:none}
 .eyebrow.centered{justify-content:center}
 .eyebrow.centered::before{content:none}
 section{padding:clamp(88px,11vw,150px) 0}
@@ -156,16 +158,20 @@ section{padding:clamp(88px,11vw,150px) 0}
   display:grid;grid-template-columns:5fr 7fr;gap:clamp(36px,5vw,80px);
   align-items:center;position:relative;z-index:1;
 }
-.cover-art{width:100%;max-width:360px;margin:0}
+.cover-art{width:100%;max-width:480px;margin:0}
 .cover-art img{
   width:100%;aspect-ratio:1/1;display:block;object-fit:cover;
   border:1px solid var(--hairline);border-radius:16px;
 }
 .phero h1{
   font-family:var(--display);font-weight:800;
-  font-size:clamp(38px,5vw,68px);letter-spacing:-0.03em;line-height:1.0;
+  font-size:clamp(34px,4.2vw,56px);letter-spacing:-0.03em;line-height:1.04;
 }
-.phero h2{margin-top:20px;color:color-mix(in srgb,var(--ink) 88%,transparent)}
+.phero h2{
+  margin-top:16px;color:color-mix(in srgb,var(--ink) 80%,transparent);
+  font-size:clamp(19px,1.9vw,26px);font-weight:600;
+  letter-spacing:-0.01em;line-height:1.35;max-width:44ch;
+}
 .phero-body{
   margin-top:22px;max-width:56ch;
   font-size:clamp(16px,1.35vw,19px);color:color-mix(in srgb,var(--ink) 82%,transparent);
@@ -181,7 +187,7 @@ section{padding:clamp(88px,11vw,150px) 0}
 .embed-ph p{font-size:14px;color:color-mix(in srgb,var(--ink) 50%,transparent);max-width:44ch}
 @media(max-width:820px){
   .phero-grid{grid-template-columns:1fr}
-  .cover-art{margin:0 auto}
+  .cover-art{margin:0 auto;max-width:360px}
 }
 
 /* ---------- what you'll learn : hairline numeral list ---------- */
@@ -230,27 +236,27 @@ section{padding:clamp(88px,11vw,150px) 0}
 .midcta .btn{margin-top:30px;position:relative;z-index:1}
 .midcta.dark .btn:hover{color:var(--cream-1);border-color:var(--cream-1)}
 
-/* ---------- podcast host : mirrored arched-portrait two-column ---------- */
-.host-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(40px,6vw,96px);align-items:start}
+/* ---------- podcast host : photo left, copy right, closing copy full-width ---------- */
+.host-grid{
+  display:grid;grid-template-columns:1fr minmax(280px,400px);
+  column-gap:clamp(40px,5vw,80px);align-items:center;
+  margin-top:clamp(32px,4vw,48px);
+}
+.host-grid .about-photo{order:2}
+.host-full{margin-top:28px}
 .about-copy p{margin-bottom:22px;font-size:clamp(16px,1.35vw,19px);color:color-mix(in srgb,var(--ink) 84%,transparent)}
 .about-copy p:last-child{margin-bottom:0}
 .about-copy p strong{font-weight:600;color:var(--ink)}
 /* oval accent: arched portrait */
-.about-photo{position:relative;max-width:360px}
+.about-photo{position:relative;max-width:420px;width:100%}
 .about-photo img{
   width:100%;display:block;
   border-radius:999px 999px 8px 8px;
 }
-.about-photo::before{
-  content:"";position:absolute;inset:-12px -12px auto -12px;height:60%;
-  border-radius:999px 999px 0 0;
-  border:1px solid var(--clay);border-bottom:none;pointer-events:none;
-}
 .about-photo figcaption{margin-top:14px;font-size:13px;color:color-mix(in srgb,var(--ink) 60%,transparent)}
-.host-grid .about-photo{justify-self:end;margin-top:12px}
 @media(max-width:820px){
-  .host-grid{grid-template-columns:1fr}
-  .host-grid .about-photo{justify-self:start}
+  .host-grid{grid-template-columns:1fr;row-gap:28px}
+  .host-grid .about-photo{order:0}
 }
 
 /* ---------- show posts : quiet blog-feed placeholder cards ---------- */
@@ -280,6 +286,7 @@ section{padding:clamp(88px,11vw,150px) 0}
 .cta{background:var(--cream-2);text-align:center;border-top:1px solid var(--hairline)}
 .cta h2{max-width:16ch;margin:0 auto}
 .cta h2 em{font-style:normal;color:var(--clay)}
+.cta .eyebrow{color:var(--oxblood)}
 .cta p{margin:28px auto 40px;max-width:50ch;color:color-mix(in srgb,var(--ink) 74%,transparent)}
 .cta-note{margin-top:20px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--ink) 50%,transparent)}
 
@@ -328,7 +335,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
       <div class="reveal">
         <h1>Trademarks With Chelsea Podcast</h1>
         <h2>A trademark law podcast for business owners, one question at a time.</h2>
-        <p class="phero-body">Trademark law makes a lot more sense when it's connected to real business decisions. Each episode tackles one question — a common trademark question, a legal definition explained in plain terms, or a specific example of how trademark strategy plays out for a real business — so you can see exactly how it applies to what you're building. Clear, practical, trademarks chat in under 12 minutes.</p>
+        <p class="phero-body">Trademark law makes a lot more sense when it's connected to real business decisions. Each episode tackles one question: a common trademark question, a legal definition explained in plain terms, or a specific example of how trademark strategy plays out for a real business. That way, you can see exactly how it applies to what you're building. Clear, practical, trademarks chat in under 12 minutes.</p>
         <!-- Listen URLs pending show approval (Task 5.5) — wire Apple / Spotify / YouTube hrefs at launch -->
         <div class="listen-btns">
           <a class="btn ghost" href="#"><svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2.5 1.5v9l8-4.5z"/></svg>Listen on Apple</a>
@@ -340,7 +347,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
     <!-- Chelsea replaces this container's CONTENTS with the player embed code at launch (Task 5.5).
          Keep the outer .embed-ph wrapper so padding/rhythm hold. -->
     <div class="embed-ph reveal">
-      <p>Podcast player embeds here — trailer first, then latest 5 episodes</p>
+      <p>Podcast player embeds here: trailer first, then latest 5 episodes</p>
     </div>
   </div>
 </header>
@@ -351,17 +358,17 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
     <div class="sec-head reveal">
       <p class="eyebrow">What You'll Learn</p>
       <h2>Trademark law, translated for the way you actually run your business</h2>
-      <p class="sec-intro">Every episode is built around the questions real business owners are actually asking — not the ones a law school textbook would cover. We'll cover questions like:</p>
+      <p class="sec-intro">Every episode is built around the questions real business owners are actually asking, not the ones a law school textbook would cover. We'll cover questions like:</p>
     </div>
     <ol class="qlist">
-      <li class="reveal"><span class="qnum">01</span><span>What does a trademark actually protect — and what doesn't it cover?</span></li>
+      <li class="reveal"><span class="qnum">01</span><span>What does a trademark actually protect, and what doesn't it cover?</span></li>
       <li class="reveal"><span class="qnum">02</span><span>How does the trademark search and application process work, step by step?</span></li>
       <li class="reveal"><span class="qnum">03</span><span>Does my type of business actually need a trademark? (Coaches, authors, therapists, speakers, product-based brands, and more)</span></li>
-      <li class="reveal"><span class="qnum">04</span><span>What are the most common trademark mistakes business owners make — and how do you avoid them?</span></li>
+      <li class="reveal"><span class="qnum">04</span><span>What are the most common trademark mistakes business owners make, and how do you avoid them?</span></li>
       <li class="reveal"><span class="qnum">05</span><span>How does trademark strategy play out in real businesses?</span></li>
       <li class="reveal"><span class="qnum">06</span><span>What can I do after my registration goes through to keep protecting my brand properly?</span></li>
     </ol>
-    <p class="learn-close reveal">If you've been putting off thinking about trademarks because it felt too complicated or too far down the list — this is where to start.</p>
+    <p class="learn-close reveal">If you've been putting off thinking about trademarks because it felt too complicated or too far down the list, this is where to start.</p>
   </div>
 </section>
 
@@ -376,23 +383,27 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
 
 <!-- BLOCK 4 — PODCAST HOST -->
 <section id="host">
-  <div class="wrap host-grid">
+  <div class="wrap">
     <div class="reveal">
       <p class="eyebrow">Your Podcast Host</p>
       <h2>Chelsea Fournier, Trademark Attorney</h2>
-      <div class="about-copy" style="margin-top:26px">
+    </div>
+    <div class="host-grid reveal">
+      <!-- Photo: Chelsea's Google-Drive headshot, run through TinyPNG before adding (Task 2.10 / 4.4) -->
+      <figure class="about-photo">
+        <img src="images/trademark-law-basics-business-podcast-with-chelsea-fournier.jpg" alt="Chelsea Fournier, US trademark attorney and host of the Trademarks With Chelsea Podcast, in a navy blue short sleeve shirt standing in an office room with lots of windows behind her">
+        <figcaption>Chelsea Fournier, host of the Trademarks With Chelsea Podcast</figcaption>
+      </figure>
+      <div class="about-copy">
         <p>Chelsea is a federal trademark attorney and founder of Trademarks with Chelsea, a boutique law practice focused exclusively on USPTO trademark work for business owners, professional service providers, and thought leaders.</p>
-        <p>She started practicing law in 2008, and spent the years that followed not just inside a law firm — but also inside the entrepreneurial world as a startup team member, business coach, consultant, and marketing agency founder.</p>
+        <p>She started practicing law in 2008, and spent the years that followed not just inside a law firm, but also inside the entrepreneurial world as a startup team member, business coach, consultant, and marketing agency founder.</p>
         <p>That crossover is what makes her rare in her field: she understands what it actually costs to build something, which is why she's particular about making sure it's protected correctly.</p>
-        <p>Chelsea lives in North Carolina and is licensed to practice law in Maine. Her practice serves clients nationwide in federal trademark matters before the USPTO.</p>
-        <p>She created this podcast to do what she's always done best: bridge the gap between legal complexity and the real decisions business owners have to make.</p>
       </div>
     </div>
-    <!-- Photo: Chelsea's Google-Drive headshot, run through TinyPNG before adding (Task 2.10 / 4.4) -->
-    <figure class="about-photo reveal">
-      <img src="images/trademark-law-basics-business-podcast-with-chelsea-fournier.jpg" alt="Chelsea Fournier, US trademark attorney and host of the Trademarks With Chelsea Podcast, in a navy blue short sleeve shirt standing in an office room with lots of windows behind her">
-      <figcaption>Chelsea Fournier, host of the Trademarks With Chelsea Podcast</figcaption>
-    </figure>
+    <div class="about-copy host-full reveal">
+      <p>Chelsea lives in North Carolina and is licensed to practice law in Maine. Her practice serves clients nationwide in federal trademark matters before the USPTO.</p>
+      <p>She created this podcast to do what she's always done best: bridge the gap between legal complexity and the real decisions business owners have to make.</p>
+    </div>
   </div>
 </section>
 
@@ -439,7 +450,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
   <div class="wrap">
     <p class="eyebrow centered reveal">The next step is a conversation</p>
     <h2 class="reveal">Ready to stop guessing and start <em>protecting</em> what you've built?</h2>
-    <p class="reveal">If something in an episode got you thinking about your own brand, the next step is a conversation — not a search engine.</p>
+    <p class="reveal">If something in an episode got you thinking about your own brand, the next step is a conversation, not a search engine.</p>
     <a class="btn reveal" href="consultation.html">Book a Free Trademark Strategy Consultation</a>
     <p class="cta-note reveal">Trademark clarity for business owners who build for the long game</p>
   </div>

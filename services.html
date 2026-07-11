@@ -67,7 +67,8 @@ nav{
 .nav-links{display:flex;gap:36px;align-items:center;list-style:none;grid-column:2;justify-self:center}
 .nav-links a{font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);opacity:.75;transition:opacity .3s}
 .nav-links a:hover{opacity:1}
-.nav-links .btn{color:var(--ink);opacity:1}
+.nav-links .btn{color:var(--cream-1);opacity:1}
+.nav-links .btn:hover{color:var(--clay)}
 .nav-right{grid-column:3;justify-self:end;display:flex;align-items:center;gap:16px}
 .menu-cta{display:none}
 .nav-links a.active{opacity:1;border-bottom:1px solid var(--clay);padding-bottom:3px}
@@ -82,7 +83,8 @@ nav{
 .btn.small{padding:11px 24px;font-size:13px}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--hairline)}
 .btn.ghost:hover{border-color:var(--clay);color:var(--clay)}
-.btn.nav-cta{color:var(--ink)}
+.btn.nav-cta{color:white}
+.btn.nav-cta:hover{color:var(--clay)}
 
 /* hamburger (≤820px) */
 .nav-toggle{display:none;background:none;border:0;cursor:pointer;padding:10px;margin:-10px}
@@ -113,7 +115,7 @@ nav{
   font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--oxblood);
   margin-bottom:28px;
 }
-.eyebrow::before{content:"";width:36px;height:1px;background:var(--clay)}
+.eyebrow::before{content:none}
 .eyebrow.centered{justify-content:center}
 .eyebrow.centered::before{content:none}
 section{padding:clamp(88px,11vw,150px) 0}
@@ -168,13 +170,7 @@ section{padding:clamp(88px,11vw,150px) 0}
   margin:0 auto;
 }
 .hero-display em{font-style:normal;color:var(--oxblood)}
-/* low highlight: quiet clay band under the lower third of one word */
 .lowlight{position:relative;white-space:nowrap;z-index:0}
-.lowlight::before{
-  content:"";position:absolute;z-index:-1;
-  left:-0.06em;right:-0.06em;bottom:0.12em;height:0.38em;
-  background:var(--clay);opacity:.4;border-radius:2px;
-}
 .hero-sub{margin-top:32px}
 .hero-sub p{
   font-size:clamp(16.5px,1.4vw,19px);max-width:52ch;margin:0 auto;
@@ -242,12 +238,13 @@ section{padding:clamp(88px,11vw,150px) 0}
 .price-grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:clamp(24px,3vw,40px);margin-top:clamp(40px,5vw,64px);
-  align-items:start;
+  align-items:stretch;
 }
 .pcard{
   position:relative;background:var(--cream-2);
   border:1px solid var(--hairline);border-radius:18px;
   padding:clamp(28px,3vw,40px);
+  display:flex;flex-direction:column;
 }
 .svc-alt .pcard{background:var(--cream-1)}
 .pcard.hot{border-color:var(--oxblood)}
@@ -278,7 +275,7 @@ section{padding:clamp(88px,11vw,150px) 0}
 .pcard .desc strong{font-weight:600;color:var(--ink)}
 .pcard .includes{
   margin-top:24px;font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:color-mix(in srgb,var(--ink) 60%,transparent);
+  color:var(--oxblood);
 }
 .pcard ul{margin-top:6px;border-top:1px solid var(--hairline);list-style:none}
 .pcard ul li{
@@ -291,16 +288,41 @@ section{padding:clamp(88px,11vw,150px) 0}
   margin-top:28px;font-style:italic;font-size:14px;line-height:1.7;
   color:color-mix(in srgb,var(--ink) 62%,transparent);max-width:76ch;
 }
+.pcard .card-note{
+  margin-top:auto;padding-top:24px;
+  border-top:1px solid var(--hairline);
+  font-style:italic;font-size:14.5px;line-height:1.7;
+  color:color-mix(in srgb,var(--ink) 62%,transparent);
+}
 @media(max-width:768px){.price-grid{grid-template-columns:1fr}}
 
-/* ---------- registration & maintenance : quiet, text-only ---------- */
+
+/* ---------- registration & maintenance : copy + arched portrait ---------- */
+.rm-grid{
+  display:grid;grid-template-columns:7fr 5fr;
+  gap:clamp(40px,6vw,96px);align-items:center;
+}
 .rm{max-width:64ch}
 .rm-copy{margin-top:26px}
+.rm-photo{position:relative;max-width:380px;margin:0 auto}
+.rm-photo img{
+  width:100%;display:block;
+  border-radius:999px 999px 8px 8px;
+}
+.rm-photo figcaption{
+  margin-top:14px;font-size:13px;text-align:center;
+  color:color-mix(in srgb,var(--ink) 60%,transparent);
+}
+@media(max-width:820px){
+  .rm-grid{grid-template-columns:1fr}
+  .rm-photo{max-width:320px;margin-top:8px}
+}
 
 /* ---------- final CTA ---------- */
 .cta{background:var(--cream-2);text-align:center;border-top:1px solid var(--hairline)}
 .cta h2{max-width:14ch;margin:0 auto}
 .cta h2 em{font-style:normal;color:var(--clay)}
+.cta .eyebrow{color:var(--oxblood)}
 .cta p{margin:28px auto 40px;max-width:50ch;color:color-mix(in srgb,var(--ink) 74%,transparent)}
 .cta-note{margin-top:20px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:color-mix(in srgb,var(--ink) 50%,transparent)}
 
@@ -344,13 +366,13 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
   <div class="wrap hero-inner">
     <h1 class="hero-kicker reveal">Trademark Attorney | USPTO Search, Application &amp; Registration Services</h1>
     <p class="hero-display reveal">
-      Clarity, from search<br><em>to <span class="lowlight">registration</span>.</em>
+      Clarity, from search<br><em>to <span class="lowlight">registration</span></em>
     </p>
     <div class="hero-sub reveal">
-      <p>I'm a federal trademark attorney—meaning this practice is 100% USPTO trademark work, not an after-thought service tacked onto a general law firm. And not an online service marking up processing forms you fill out yourself. Every flat-fee service below is priced clearly upfront, and every step comes with the kind of guidance a DIY filing service simply can't offer.</p>
+      <p>I'm a federal trademark attorney meaning this practice is 100% USPTO trademark work, not an after-thought service tacked onto a general law firm. And not an online service marking up processing forms you fill out yourself. Every flat-fee service below is priced clearly upfront, and every step comes with the kind of guidance a DIY filing service simply can't offer.</p>
       <div class="hero-cta">
         <a class="btn" href="consultation.html">Book a Free Trademark Strategy Consultation</a>
-        <a class="btn ghost" href="#process">See the process</a>
+    
       </div>
     </div>
   </div>
@@ -379,7 +401,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
 .tmproc-eyebrow{
   display:flex;align-items:center;justify-content:center;gap:14px;
   font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
-  letter-spacing:.32em;text-transform:uppercase;color:#643335;
+  letter-spacing:.32em;text-transform:uppercase;color:var(--oxblood);
   margin:0 0 28px;
 }
 .tmproc-head h2{
@@ -459,7 +481,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
         <div class="tmproc-card">
           <span class="tmproc-num">02</span>
           <h3>Trademark Search</h3>
-          <p>Before you file anything, a clearance search confirms the path is open — so you're not building a brand around a name you can't keep.</p>
+          <p>Before you file anything, a clearance search confirms the path is open, so you're not building a brand around a name you can't keep.</p>
         </div>
       </li>
       <li class="tmproc-step" data-side="left">
@@ -473,7 +495,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
         <div class="tmproc-card">
           <span class="tmproc-num">04</span>
           <h3>Registration</h3>
-          <p>Once the USPTO approves your mark, it's officially registered — but the work of protecting it doesn't stop there.</p>
+          <p>Once the USPTO approves your mark, it's officially registered, but the work of protecting it doesn't stop there.</p>
         </div>
       </li>
       <li class="tmproc-step" data-side="left">
@@ -586,7 +608,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
       </div>
     </div>
     <p class="stat-caption reveal">82% of attorney-filed trademark applications receive preliminary USPTO approval. Without an attorney, that drops to 60%.</p>
-    <p class="stat-cite reveal">Gerhardt &amp; McClanahan, "Do Trademark Lawyers Matter?" — UNC School of Law</p>
+    <p class="stat-cite reveal">Gerhardt &amp; McClanahan, "Do Trademark Lawyers Matter?" (UNC School of Law)</p>
   </div>
 </section>
 
@@ -600,9 +622,9 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
       </div>
     </div>
     <div class="about-copy reveal">
-      <p>Online filing services are built around one assumption: that you already know exactly what to file, and how to file it correctly. <strong>Most business owners don't</strong> — and the cost of getting it wrong isn't just losing the filing fee, it's the time and money spent rebuilding a weak application later.</p>
+      <p>Online filing services are built around one assumption: that you already know exactly what to file, and how to file it correctly. <strong>Most business owners don't</strong> and the cost of getting it wrong isn't just losing the filing fee, it's the time and money spent rebuilding a weak application later.</p>
       <p>I bring <strong>a decade of trademark law experience</strong> to every search and every application, which means catching the things a fill-in-the-blank form can't: a conflict that isn't obvious on the surface, a class of goods that doesn't quite match how you actually do business, language in your application that could create problems down the line.</p>
-      <p><strong>When you hire me, you work with me.</strong> There's no paralegal handling your file behind the scenes or an associate you get passed off to — one attorney, on every step, from search to registration.</p>
+      <p><strong>When you hire me, you work with me.</strong> There's no paralegal handling your file behind the scenes or an associate you get passed off to one attorney, on every step, from search to registration.</p>
       <p>It's also why this practice works the way it does: forms and payments through a secure client portal, tasks assigned to you on your own schedule, no long phone calls in the middle of your workday.</p>
       <p><strong>Efficient support, without losing the part that actually matters:</strong> someone paying close attention to your application.</p>
     </div>
@@ -623,7 +645,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
     <div class="svc-head reveal">
       <p class="eyebrow">Feel Confident in What You Can Protect</p>
       <h2>Trademark Search Services</h2>
-      <p class="svc-intro">Before you invest in a name or logo — signage, packaging, a website, a launch — it's worth knowing whether you can actually own and protect it. I offer two levels of search, depending on how much certainty you need.</p>
+      <p class="svc-intro">Before you invest in a name or logo (signage, packaging, a website, a launch), it's worth knowing whether you can actually own and protect it. I offer two levels of search, depending on how much certainty you need.</p>
     </div>
     <div class="price-grid">
       <div class="pcard reveal">
@@ -640,7 +662,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
         <p class="desc">A full clearance report (of USPTO records <strong>and</strong> public records), plus a recap call to walk through what it means for your brand.</p>
       </div>
     </div>
-    <p class="price-note reveal"><em>Looking at more than one name or logo design, or considering filing for multiple marks at once? I offer discounts for searches and applications handled together — we can talk through what discounts would be available to you during your consultation.</em></p>
+    <p class="price-note reveal"><em>Looking at more than one name or logo design, or considering filing for multiple marks at once? I offer discounts for searches and applications handled together. We can talk through what discounts would be available to you during your consultation.</em></p>
   </div>
 </section>
 
@@ -650,7 +672,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
     <div class="svc-head reveal">
       <p class="eyebrow">Filing, Done Right the First Time</p>
       <h2>Trademark Application Services</h2>
-      <p class="svc-intro">Once your search confirms the path is clear, I draft and file your application — then monitor it through the process, handling routine USPTO correspondence along the way.</p>
+      <p class="svc-intro">Once your search confirms the path is clear, I draft and file your application then monitor it through the process, handling routine USPTO correspondence along the way.</p>
     </div>
     <div class="price-grid">
       <div class="pcard reveal">
@@ -668,9 +690,10 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
         <h3>Additional Class, Same Mark</h3>
         <div class="price">$750 <span>total</span></div>
         <p class="sub">($400 legal fee + $350 current USPTO fee)</p>
+        <p class="card-note"><em>Substantive Office Action responses (such as a likelihood-of-confusion refusal) aren't included in the flat fees above. They're quoted separately based on what the specific refusal requires. We can talk through what to expect during your consultation.</em></p>
       </div>
     </div>
-    <p class="price-note reveal"><em>Substantive Office Action responses (such as a likelihood-of-confusion refusal) aren't included in the flat fees above — they're quoted separately based on what the specific refusal requires. We can talk through what to expect during your consultation.</em></p>
+   
   </div>
 </section>
 
@@ -684,16 +707,20 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
 
 <!-- BLOCK 9 — REGISTRATION & MAINTENANCE -->
 <section id="maintenance">
-  <div class="wrap">
+  <div class="wrap rm-grid">
     <div class="rm">
       <p class="eyebrow reveal">Protected Doesn't Mean Done</p>
       <h2 class="reveal">Trademark Registration &amp; Maintenance Services</h2>
       <div class="about-copy rm-copy reveal">
-        <p>Once your mark is registered, it has to stay that way. The USPTO requires a handful of filings over the life of a registration — proof of continued use, periodic renewals — to keep it active. These are billed individually as they come due, priced as legal fee plus the current USPTO fee, with no markup.</p>
+        <p>Once your mark is registered, it has to stay that way. The USPTO requires a handful of filings over the life of a registration  proof of continued use, periodic renewals  to keep it active. These are billed individually as they come due, priced as legal fee plus the current USPTO fee, with no markup.</p>
         <p>You won't need to track any of this yourself. I monitor your filing deadlines and reach out when something's due, well before it becomes urgent.</p>
-        <p>You may also have practical questions along the way — how to display the correct symbol on your website, or how to prepare a statement of use. You can book me for a one-off strategy call for practical advice on how to use and protect your marks in your business.</p>
+        <p>You may also have practical questions along the way how to display the correct symbol on your website, or how to prepare a statement of use. You can book me for a one-off strategy call for practical advice on how to use and protect your marks in your business.</p>
       </div>
     </div>
+    <figure class="rm-photo reveal">
+      <img src="images/find-a-flat-fee-trademark-attorney-for-business-owners.jpg" alt="Chelsea Fournier, flat fee trademark attorney, wearing a rose pink shirt and smiling in front of greenery" loading="lazy">
+      <figcaption>Chelsea keeps your registration active, so you stay focused on the business.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -702,7 +729,7 @@ footer{background:var(--ink);color:var(--cream-1);padding:clamp(56px,7vw,88px) 0
   <div class="wrap">
     <p class="eyebrow centered reveal">The next step is a conversation</p>
     <h2 class="reveal">Let's figure out what your brand <em>actually</em> needs</h2>
-    <p class="reveal">Every business is different, and so is every trademark strategy. The best way to know what yours should look like is a conversation — not a guess from a pricing page.</p>
+    <p class="reveal">Every business is different, and so is every trademark strategy. The best way to know what yours should look like is a conversation not a guess from a pricing page.</p>
     <a class="btn reveal" href="consultation.html">Book a Free Trademark Strategy Consultation</a>
     <p class="cta-note reveal">Trademark clarity for business owners who build for the long game</p>
   </div>
